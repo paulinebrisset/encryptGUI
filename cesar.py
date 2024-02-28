@@ -3,7 +3,7 @@ class Cesar:
         pass
 
     @staticmethod
-    def crypt(message, shift, newbie=None):
+    def crypt(message, shift, newbie=False):
         """
         Encrypts a message using the Caesar cipher.
 
@@ -15,7 +15,7 @@ class Cesar:
             str: The encrypted message.
         """
         encrypted_message = ""
-        if newbie == 1:
+        if newbie:
             print("newbie")
             for char in message:
                 if char.isalpha():  # Check if the character is an alphabet letter
@@ -26,7 +26,7 @@ class Cesar:
                     encrypted_message += chr(shifted)
                 else:
                     encrypted_message += char  # If the character is not an alphabet letter, keep it unchanged
-        else :
+        else:
             print("not newbie")
             for char in message:
                 if (
@@ -41,7 +41,7 @@ class Cesar:
         return encrypted_message
 
     @staticmethod
-    def decrypt(message, shift):
+    def decrypt(message, shift, newbie=False):
         """
         Decrypts a message encrypted using the Caesar cipher.
 
@@ -52,7 +52,7 @@ class Cesar:
         Returns:
             str: The decrypted message.
         """
-        return Cesar.crypt(message, -shift)
+        return Cesar.crypt(message, -shift, newbie)
 
 
 # Example usage
